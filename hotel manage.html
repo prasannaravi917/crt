@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hotel Paradise</title>
+<style>
+body{
+margin:0;
+font-family:Arial;
+color:white;
+}
+nav{
+background:black;
+padding:15px;
+text-align:center;
+}
+nav button{
+background:none;
+border:none;
+color:white;
+font-size:18px;
+margin:15px;
+cursor:pointer;
+}
+.page{
+display:none;
+height:100vh;
+background-size:cover;
+background-position:center;
+text-align:center;
+padding-top:200px;
+}
+.box{
+background:rgba(0,0,0,0.6);
+display:inline-block;
+padding:30px;
+border-radius:10px;
+}
+#home{
+display:block;
+background-image:url("https://images.unsplash.com/photo-1566073771259-6a8506099945");
+}
+#rooms{
+background-image:url("https://images.unsplash.com/photo-1618773928121-c32242e63f39");
+}
+#offers{
+background-image:url("https://images.unsplash.com/photo-1560448204-e02f11c3d0e2");
+}
+#register{
+background-image:url("https://images.unsplash.com/photo-1582719508461-905c673771fd");
+}
+#contact{
+background-image:url("https://images.unsplash.com/photo-1520250497591-112f2f40a3f4");
+}
+input{
+padding:10px;
+margin:10px;
+width:200px;
+}
+button.submit{
+padding:10px 20px;
+background:orange;
+border:none;
+color:white;
+cursor:pointer;
+}
+</style>
+<script>
+function showPage(pageId){
+var pages=document.querySelectorAll(".page");
+for(var i=0;i<pages.length;i++){
+pages[i].style.display="none";
+}
+document.getElementById(pageId).style.display="block";
+}
+</script>
+</head>
+<body>
+<nav>
+<button onclick="showPage('home')">Home</button>
+<button onclick="showPage('rooms')">Rooms</button>
+<button onclick="showPage('offers')">Offers</button>
+<button onclick="showPage('register')">Register</button>
+<button onclick="showPage('contact')">Contact</button>
+</nav>
+<div id="home" class="page">
+<div class="box">
+<h1>Welcome to Hotel Paradise</h1>
+<p>Luxury Rooms | Best Service | Affordable Prices</p>
+</div>
+</div>
+<div id="rooms" class="page">
+<div class="box">
+<h1>Room Availability</h1>
+<p>🛏 Single Room – ₹1500</p>
+<p>🛏 Double Room – ₹2500</p>
+<p>🛏 Deluxe Room – ₹4000</p>
+</div>
+</div>
+<div id="offers" class="page">
+<div class="box">
+<h1>Special Offers</h1>
+<p>🔥 20% Discount for Online Booking</p>
+<p>🎉 Weekend Special Packages</p>
+<p>🍽 Free Breakfast Included</p>
+<p>💑 Honeymoon Couple Offer</p>
+</div>
+</div>
+<div id="register" class="page">
+<div class="box">
+<h1>Registration</h1>
+<form>
+<input type="text" placeholder="Name"><br>
+<input type="email" placeholder="Email"><br>
+<input type="tel" placeholder="Phone"><br>
+<button class="submit">Submit</button>
+</form>
+</div>
+</div>
+<div id="contact" class="page">
+<div class="box">
+<h1>Contact Us</h1>
+<p>📍 Chittoor, Andhra Pradesh</p>
+<p>📞 +91 9876543210</p>
+<p>📧 hotelparadise@email.com</p>
+</div>
+</div>
+</body>
+</html>

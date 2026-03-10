@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delicious Bites</title>
+<style>
+body{font-family:sans-serif;margin:0;color:#333;}
+header{height:100vh;background:url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;display:flex;justify-content:center;align-items:center;color:#fff;text-align:center;}
+header h1{font-size:3em;text-shadow:2px 2px 8px rgba(0,0,0,0.7);}
+header p{text-shadow:1px 1px 6px rgba(0,0,0,0.6);}
+button{padding:10px 20px;margin:10px;border:none;background:#ff4d4d;color:#fff;cursor:pointer;border-radius:5px;}
+section{display:none;padding:50px;text-align:center;}
+.menu-item{margin:20px;display:inline-block;cursor:pointer;}
+.menu-item img{width:200px;height:150px;object-fit:cover;border-radius:10px;}
+footer{background:#333;color:#fff;text-align:center;padding:20px;}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Delicious Bites</h1>
+    <p>Click buttons below to explore</p>
+    <div>
+      <button onclick="showSection('menu')">Menu</button>
+      <button onclick="showSection('offers')">Offers</button>
+      <button onclick="showSection('contact')">Contact</button>
+    </div>
+  </div>
+</header>
+<section id="menu">
+  <h2>Menu</h2>
+  <div class="menu-item">
+    <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80" alt="Burger">
+    <p>Burger $12</p>
+  </div>
+  <div class="menu-item">
+    <img src="d:\html img\pasta.jpg" alt="Pasta">
+    <p>Pasta $15</p>
+  </div>
+  <div class="menu-item">
+    <img src="d:\html img\salas.jpg" alt="Salad">
+    <p>Salad $10</p>
+  </div>
+</section>
+<section id="offers">
+  <h2>Special Offers</h2>
+  <p>Buy 1 Get 1 Free!<br>20% Off Pasta<br>Free Dessert $30+</p>
+</section>
+<section id="contact">
+  <h2>Contact Us</h2>
+  <form style="max-width:400px;margin:auto;">
+    <input type="text" placeholder="Name" required style="width:100%;padding:10px;margin:5px 0;">
+    <input type="email" placeholder="Email" required style="width:100%;padding:10px;margin:5px 0;">
+    <textarea placeholder="Message" required style="width:100%;padding:10px;margin:5px 0;"></textarea>
+    <button type="submit">Send</button>
+  </form>
+</section>
+<footer>&copy; 2026 Delicious Bites</footer>
+<script>
+function showSection(id){
+  ['menu','offers','contact'].forEach(sec=>document.getElementById(sec).style.display='none');
+  document.getElementById(id).style.display='block';
+}
+</script>
+</body>
+</html>

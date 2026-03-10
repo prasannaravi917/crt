@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            text-align: center;
+        }
+        .container{
+            background: white;
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        input{
+            width: 70%;
+            padding: 8px;
+        }
+        button{
+            padding: 8px 12px;
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        li{
+            list-style:none;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .delete{
+            background: red;
+            border: none;
+            padding: 5px 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>My To-Do List</h2>
+        <input type="text" id="taskinput" placeholder="Enter task">
+        <button onclick="addTask()">Add</button>
+        <ul id="tasklist"></ul>
+    </div>
+
+    <script>
+        // Load tasks from localStorage on page load
+        window.onload = function() {
+            const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            tasks.forEach(task => addTaskToDOM(task));
+        }
+
+        function addTask() {
+            const taskInput = document.getElementById('taskinput');
+            const taskValue = taskInput.value.trim();
+            if(taskValue === '') return;
+
+            addTaskToDOM(taskValue);
+            saveTask(taskValue);
+
+            taskInput.value = '';
+        }
+
+        function addTaskToDOM(taskValue) {
+            const li = document.createElement('li');
+            li.textContent = taskValue;
+
+            const delBtn = document.createElement('button');
+            delBtn.textContent = 'Delete';
+            delBtn.className = 'delete';
+            delBtn.onclick = () => {
+                li.remove();
+                removeTask(taskValue);
+            }
+
+            li.appendChild(delBtn);
+            document.getElementById('tasklist').appendChild(li);
+        }
+
+        function saveTask(task) {
+            const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            tasks.push(task);
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+        }
+
+        function removeTask(task) {
+            let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            tasks = tasks.filter(t => t !== task);
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+        }
+    </script>
+</body>
+</html>
